@@ -11,7 +11,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class MemoController {
-
+    /* 제어 흐름
+    Controller -> Service -> Repository : 강한 결합
+     */
     private final MemoService memoService;
 
     public MemoController(JdbcTemplate jdbcTemplate) {
