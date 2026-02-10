@@ -4,10 +4,11 @@ import com.example.springprepare.memo.dto.MemoRequestDto;
 import com.example.springprepare.memo.dto.MemoResponseDto;
 import com.example.springprepare.memo.entity.Memo;
 import com.example.springprepare.memo.repository.MemoRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//@Service
+@Service
 public class MemoService {
 
     private final MemoRepository memoRepository ;
