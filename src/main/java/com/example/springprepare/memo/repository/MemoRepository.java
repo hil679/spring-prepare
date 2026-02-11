@@ -3,6 +3,8 @@ package com.example.springprepare.memo.repository;
 import com.example.springprepare.memo.dto.MemoRequestDto;
 import com.example.springprepare.memo.dto.MemoResponseDto;
 import com.example.springprepare.memo.entity.Memo;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -86,5 +88,16 @@ public class MemoRepository {
                 return null;
             }
         }, id);
+    }
+
+    //transaction전파
+    @Transactional
+    public Memo createMemo(EntityManager em) {
+        Memo memo = em.find(Memo.class, 2);
+        memo.setUsername("Uesr ");
+        memo.setContents("@Transactional 전파 테스트 중!");
+
+        System.out.println("createMemo 메서드 종료");
+        return memo;
     }
 }
